@@ -13,6 +13,7 @@ using System.Linq;
 using NodaTime;
 using System.Collections.Generic;
 using NodaTime.Extensions;
+using ShippingEcommerce.Data.Entities;
 
 namespace ShippingEcommerce.Services
 {
@@ -21,6 +22,7 @@ namespace ShippingEcommerce.Services
         private readonly DataContext _context;
         private readonly IMapper _mapper;
         private readonly ILogger<OrderService> _logger;
+        private readonly List<Holiday> _holidays;
 
 
         public OrderService(DataContext context, IMapper mapper, ILogger<OrderService> logger,
@@ -29,11 +31,14 @@ namespace ShippingEcommerce.Services
             _context = context;
             _mapper = mapper;
             _logger = logger;
+            _holidays = _context.Holidays.ToList();
         }
 
         public async Task<PagedList<ProductListItem>> SearchProducts(ProductSearchParams searchParams)
         {
             var orderPredicate = _context.Products.AsNoTracking();
+            var holidays = _context.Products.AsNoTracking();
+
             var projectedOrder = orderPredicate.ProjectTo<ProductListItem>(_mapper.ConfigurationProvider);
 
             var clock = SystemClock.Instance;
@@ -60,7 +65,7 @@ namespace ShippingEcommerce.Services
             {
                 for (int i = product.MaxBusinessDaysToShip; i >= 0; i--)
                 {
-                    if (orderDate.DayOfWeek == IsoDayOfWeek.Saturday || orderDate.DayOfWeek == IsoDayOfWeek.Sunday)
+                    if (orderDate.DayOfWeek == IsoDayOfWeek.Saturday || orderDate.DayOfWeek == IsoDayOfWeek.Sunday || _holidays.Any(x=>x.Date == orderDate))
                     {
                         i++;
                     }
