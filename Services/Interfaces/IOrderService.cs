@@ -6,6 +6,6 @@ namespace ShippingEcommerce.Services
 {
     public interface IOrderService
     {
-        Task<PagedList<ProductListItem>> SearchOrders(OrderSearchParams searchParams);
+        Task<PagedList<ProductListItem>> SearchProducts(ProductSearchParams searchParams);
     }
 }

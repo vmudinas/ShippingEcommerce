@@ -19,11 +19,11 @@ namespace ShippingEcommerce.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ProductListItem>>> SearchOrders([FromQuery] OrderSearchParams searchParams)
+        public async Task<ActionResult<IEnumerable<ProductListItem>>> SearchOrders([FromQuery] ProductSearchParams searchParams)
         {
-            var orders = await _orderService.SearchOrders(searchParams);
-            Response.AddPaginationHeader(orders.CurrentPage, orders.PageSize, orders.TotalCount, orders.TotalPages);
-            return Ok(orders);
+            var products = await _orderService.SearchProducts(searchParams);
+            Response.AddPaginationHeader(products.CurrentPage, products.PageSize, products.TotalCount, products.TotalPages);
+            return Ok(products);
         }
 
     }
