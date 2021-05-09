@@ -72,5 +72,70 @@ namespace ShippingEcommerce.Data.SeedData
                 MaxBusinessDaysToShip = 15
             }
         };
+
+
+        public static readonly IEnumerable<Holiday> DateData = new List<Holiday>
+        {
+            new()
+            {
+                Id =  1,
+                Name = "New Year's Day",
+                Date = new NodaTime.LocalDate(2021, 1, 1)
+            },
+            new()
+            {
+                Id =  2,
+                Name = "Birthday of Martin Luther King, Jr.",
+                Date = new NodaTime.LocalDate(2021, 1, 20)
+            },
+             new()
+            {
+                Id =  3,
+                Name = "Presidents' Day",
+                Date = new NodaTime.LocalDate(2021, 2, 17)
+            },
+              new()
+            {
+                Id =  4,
+                Name = "Memorial Day",
+                Date = new NodaTime.LocalDate(2021, 5, 25)
+            },
+               new()
+            {
+                Id =  5,
+                Name = "Independence Day",
+                Date = new NodaTime.LocalDate(2021, 7, 4)
+            },
+                new()
+            {
+                Id =  6,
+                Name = "Labor Day",
+                Date = new NodaTime.LocalDate(2021, 9, 7)
+            },
+                 new()
+            {
+                Id =  7,
+                Name = "Columbus Day",
+                Date = new NodaTime.LocalDate(2021, 10, 12)
+            },
+                  new()
+            {
+                Id =  8,
+                Name = "Veterans Day",
+                Date = new NodaTime.LocalDate(2021, 11, 11)
+            },
+                   new()
+            {
+                Id =  9,
+                Name =  "Thanksgiving Day",
+                Date = new NodaTime.LocalDate(2021, 11, 26)
+            },
+                    new()
+            {
+                Id =  10,
+                Name = "Christmas Day",
+                Date = new NodaTime.LocalDate(2021, 12, 25)
+            },
+        };
     }
 }

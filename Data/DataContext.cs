@@ -7,7 +7,9 @@ namespace ShippingEcommerce.Data
 {
     public class DataContext : DbContext
     {
-        public DbSet<Product> Products { get; set; }       
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Holiday> Holidays { get; set; }
 
         static DataContext()
         {

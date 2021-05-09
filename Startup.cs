@@ -28,7 +28,6 @@ namespace ShippingEcommerce
             services.AddCustomMvc();
             services.AddCustomDbContext(Configuration);
             services.AddApplicationServices(Configuration);
-
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "ShippingEcommerce", Version = "v1" });

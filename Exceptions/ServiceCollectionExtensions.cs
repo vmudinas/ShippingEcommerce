@@ -13,6 +13,7 @@ using ShippingEcommerce.MapperProfiles;
 
 namespace ShippingEcommerce.Extensions
 {
+
     public static class ServiceCollectionExtensions
     {
         public static IServiceCollection AddCustomMvc(this IServiceCollection services)
