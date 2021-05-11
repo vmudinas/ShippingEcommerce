@@ -25,7 +25,9 @@ namespace ShippingEcommerce.Data
 
             modelBuilder.HasPostgresExtension("postgis");
 
-            modelBuilder.Entity<Product>().HasData(ProductSeed.Data);
+            modelBuilder.Entity<Product>().HasData(DataSeed.ProductData);
+
+            modelBuilder.Entity<Holiday>().HasData(DataSeed.HolidayData);
         }
     }
 }

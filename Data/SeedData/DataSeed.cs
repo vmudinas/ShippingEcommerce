@@ -3,9 +3,9 @@ using ShippingEcommerce.Data.Entities;
 
 namespace ShippingEcommerce.Data.SeedData
 {
-    public static class ProductSeed
+    public static class DataSeed
     {
-        public static readonly IEnumerable<Product> Data = new List<Product>
+        public static readonly IEnumerable<Product> ProductData = new List<Product>
         {
             new()
             {
@@ -74,7 +74,7 @@ namespace ShippingEcommerce.Data.SeedData
         };
 
 
-        public static readonly IEnumerable<Holiday> DateData = new List<Holiday>
+        public static readonly IEnumerable<Holiday> HolidayData = new List<Holiday>
         {
             new()
             {
